@@ -1,0 +1,12 @@
+Public Sub Exercicio$()
+  Dim i As Integer
+  Dim Aleatorio As Integer
+  Aleatorio = Rnd(1)
+
+  Do While Aleatorio Mod 3 = 0
+    For i = 0 To 10
+      MsgBox "" & Aleatorio
+    Next
+  Loop
+End Sub
+
