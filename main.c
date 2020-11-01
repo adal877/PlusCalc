@@ -9,9 +9,6 @@ Att: Desenvolvedor exausto e que esta cansado dessa vida complicada.
 #include <stdio.h>
 #include <stdlib.h>
 
-//#define __USE_MINGW_ANSI_STDIO = 1;
-//usa do metodo de prototipos para inicializar as funções do programa
-//int
 void Matrizes_Input(int a[50][50], int linhas, int colunas);
 int Matriz_Soma(int a[50][50], int b[50][50], int linhas, int colunas);
 void Matriz_Mult(int a[50][50], int b[50][50], int linhas, int colunas);
@@ -67,7 +64,7 @@ Apagar_Tela();
     printf("| 6 |-> Logica Proposicional                                    |\n");
     printf("|---|-----------------------------------------------------------|\n");
     printf("%s|%s 7 %s%s|%s -> Sair%s                               %s                    |\n", AMARELO, VERMELHO, FIM, AMARELO, VERMELHO, FIM, AMARELO);
-    printf("\033[0;33;1m|___|___________________________________________________________|\033[m\n\n");
+    printf("%s|___|___________________________________________________________|%s\n\n", AMARELO, FIM);
     Draw();
    printf("%sEntre com a acao desejada: %s", VERDE, FIM);
 
@@ -86,9 +83,6 @@ Apagar_Tela();
       case 1:
       {
         Somatorio();
-        /*printf("\nDeseja voltar para o Menu Principal?\n");
-        scanf(" %c", &cont);
-        Apagar_Tela();*/
         cont = Enter();
       }
     break;
@@ -146,7 +140,7 @@ Apagar_Tela();
              int a[50][50], b[50][50], linhas, colunas, i, j;
 
            Draw();
-           printf("%s|_____________________________________________________________|\n", AMARELO);
+           printf("%s_______________________________________________________________\n", AMARELO);
            printf("| Considere que para o funcionamento dos calculos, as marizes  |\n| devem possuir valores maximos de 50x50                        |\n");
            printf("| Insira o numero de linhas da matriz (a):                     |\n");
            scanf(" %d", &linhas);
@@ -368,7 +362,7 @@ void Somatorio() {
   printf("| Entre com o valor maximo:                                                 |\n");                                                             
   scanf(" %f", &n);                                                                                    
   printf("|                                                                           |\n");
-  printf("| Entre com o valor da constante:                                           |\n");                                                       
+  printf("| Entre com o valor da constante:                                           |%s\n", FIM);
   scanf(" %f", &a); 
   
   Apagar_Tela();
@@ -409,14 +403,13 @@ void Logica_Proposicional() {
   printf("| 5 | - p ^ q                                                                 |\n");
   printf("|   |                                                                         |\n");
   printf("| 6 | -                                                                       |\n");
-  printf("|___|_________________________________________________________________________|%s\n", FIM);
-  printf("\n");
+  printf("|___|_________________________________________________________________________|%s\n\n", FIM);
   scanf(" %d", &resp); 
   
   switch(resp) {
     defautl: 
     {
-      printf("RESPOSTA INVALIDA...");
+      printf("%s\nRESPOSTA INVALIDA...%s", VERMELHO, FIM);
       Enter();
     }
 
