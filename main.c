@@ -8,7 +8,6 @@ Att: Desenvolvedor exausto e que esta cansado dessa vida complicada.
 */
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
 //#define __USE_MINGW_ANSI_STDIO = 1;
 //usa do metodo de prototipos para inicializar as funções do programa
@@ -26,14 +25,6 @@ void Cripto_Cesar(), Decrip_Cesar();
 void Logica_Proposicional();
 void Apagar_Tela(), Draw();
 
-/*#ifdef __unix__         
-
-#elif defined(_WIN32) || defined(WIN32) || defined(_WIN64) || defined(WIN64)
-
-#define OS_Windows
-
-#endif*/
-
 #define AMARELO "\033[0;33;1m"              
 #define VERDE "\033[0;32;1m"              
 #define VERMELHO "\033[0;31;1m"    
@@ -46,7 +37,7 @@ int main() {
   int escolha;
   char cont = 's';
 //usado para apagar o conteudo já mostrado em tela para evitar "poluição" visual 
-//Apagar_Tela();
+Apagar_Tela();
 
     Draw();
 //um banner para deixar a calculadora com um aspecto mais agradavel e user-friendlly
