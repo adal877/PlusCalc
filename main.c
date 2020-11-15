@@ -1,26 +1,18 @@
-/*
-******************ATENÇÃO*****************
-    SÓ MECHA NO CODIGO SE SOUBER O QUE ESTA FAZENDO, 
-  CASO CONTRARIO NEM MUDAR AS VARIAVEIS.
-
-Att: Desenvolvedor exausto e que esta cansado dessa vida complicada.
-
+/* 
+ * Desenvolvedor: Adalberto Luiz Dos Santos Junior
+ * data de conclusão: 08/11/2020
 */
 #include <stdio.h>
 #include <stdlib.h>
-//#include "ansi_escapes.h"
-
-//#define __USE_MINGW_ANSI_STDIO = 1;
 //usa do metodo de prototipos para inicializar as funções do programa
-//int
-void Matrizes_Input(int a[50][50], int linhas, int colunas);
-int Matriz_Soma(int a[50][50], int b[50][50], int linhas, int colunas);
-void Matriz_Mult(int a[50][50], int b[50][50], int linhas, int colunas);
-int Matriz_Sub(int a[50][50], int b[50][50], int linhas, int colunas);
+void Matrizes_Input(int a[50][50], int linhas, int colunas); //função apenas para pegar os dados das matrizes do usuario
+int Matriz_Soma(int a[50][50], int b[50][50], int linhas, int colunas); // as seguintes funções Matriz_Soma, Matriz_mult e Matri
+void Matriz_Mult(int a[50][50], int b[50][50], int linhas, int colunas); //_Sub dependem da função Matriz_Input para realizar os
+int Matriz_Sub(int a[50][50], int b[50][50], int linhas, int colunas); // calculos
 int Potencia(int base, int expoente);
 void Somatorio(), Analise_Combinatorio();
 void Fatorial(), Arranjo(), Combinacao();
-char Enter();
+char Enter(); 
 void ConvBin_to_Dec(), ConvDec_to_Bin();
 void Cripto_Cesar(), Decrip_Cesar();
 void Logica_Proposicional();
@@ -30,8 +22,6 @@ void setupConsole(void);
 void restoreConsole(void);
 void SetupConsole(void);
 void RestoreConsole(void);
-
-
 // formatação de cores para uso no GNU/Linux(opções comentadas) e para windows
 // \x1b e \033 são representações em hexadecimal e octadecimal do escape ESC[
 //#define AMARELO "\033[0;33;1m"              
@@ -49,12 +39,11 @@ void RestoreConsole(void);
 //#define FIM "\033[m"
 #define FIM "\x1b[0m"
 
-
 int main() {
   int escolha;
   char cont = 's';
 //usado para apagar o conteudo já mostrado em tela para evitar "poluição" visual 
-//Apagar_Tela();
+Apagar_Tela();
 
   setupConsole();    
     Draw();
@@ -104,9 +93,6 @@ int main() {
       case 1:
       {
         Somatorio();
-        /*printf("\nDeseja voltar para o Menu Principal?\n");
-        scanf(" %c", &cont);
-        Apagar_Tela();*/
         cont = Enter();
       }
     break;
@@ -134,7 +120,7 @@ int main() {
 
            Draw();
            printf("%s_______________________________________________________________\n", AMARELO);
-           printf("| Considere que para o funcionamento dos calculos, as matrizes |\n| devem possuir valores maximos de 50x50 (afinal, porque não?  |\n|  ¯\\_(ツ)_/¯)                                                |\n");
+           printf("| Considere que para o funcionamento dos calculos, as matrizes |\n| devem possuir valores maximos de 50x50 (afinal, porque não?  |\n|  ¯\\_(ツ)_/¯)                                                 |\n");
            printf("|                                                              |\n");
            printf("| Insira o numero de linhas da matriz:                         |\n");
            scanf(" %d", &linhas);
@@ -142,18 +128,15 @@ int main() {
            printf("| Insira o numero de colunas da matriz:                        |\n");
            scanf(" %d", &colunas);
 
-           printf("| Insira os elementos da matriz 1 %d x %d                      |\n", linhas, colunas);
+           printf("| Insira os elementos da matriz (a) %d x %d                      |\n", linhas, colunas);
            printf("|                                                              |\n");
-           Draw();
-
+           //Draw();
            Matrizes_Input(a, linhas, colunas);
-            
-           printf("| Insira os elementos da matriz 2 %d x %d                      |\n", linhas, colunas);
+           printf("| Insira os elementos da matriz (b) %d x %d                      |\n", linhas, colunas);
            printf("|______________________________________________________________|%s\n", FIM);
-           Draw();
+           //Draw();
            Matrizes_Input(b, linhas, colunas);
-            
-            // Matriz_Soma();
+          Apagar_Tela();
             Matriz_Soma(a, b, linhas, colunas);
             cont = Enter();
           }
@@ -173,15 +156,13 @@ int main() {
            scanf(" %d", &colunas);
 
            printf("| Insira os elementos da matriz (a) %d x %d                    |\n", linhas, colunas);
-           Draw();
-
+           //Draw();
            Matrizes_Input(a, linhas, colunas);
-
            printf("| Insira os elementos da matriz (b) %d x %d                    |\n", linhas, colunas);
            Draw();
            Matrizes_Input(b, linhas, colunas);
+           Apagar_Tela();
 
-            //função de subtração de matrizes
             Matriz_Sub(a, b, linhas, colunas);
             cont = Enter();
           }
@@ -206,8 +187,8 @@ int main() {
            printf("| Insira os elementos da matriz (b) %d x %d                      |\n", linhas, colunas);
            Draw();
            Matrizes_Input(b, colunas, linhas);
+           Apagar_Tela();
 
-            //função de multiplicação de matrizes
            Matriz_Mult(a, b, linhas, colunas); 
            cont = Enter();
           }
@@ -219,7 +200,6 @@ int main() {
             cont = Enter();
           }
           break;
-
         }
       }
     break;
@@ -385,7 +365,6 @@ int main() {
 void Somatorio() {
  float num, i, n, a;
   
-  
   Draw();
   Apagar_Tela();
   printf("%s______________________________________________________________________________%s\n", AMARELO, FIM);
@@ -439,7 +418,6 @@ void Analise_Combinatorio() {
 //função de logica proposicional
 void Logica_Proposicional() {
   int resp;
-  
   
   Draw();
   printf("%s____________________________________________________________________________\n", AMARELO);
@@ -564,13 +542,11 @@ void Logica_Proposicional() {
 void Matrizes_Input(int a[50][50], int linhas, int colunas) {
   int i, j;
   
-  
   Draw();
   for(i = 0; i < linhas; i++) {
     for(j = 0; j < colunas; j++) {
       printf("Elemento [%d][%d]: ", i, j);
       scanf(" %d", &a[i][j]);
-      
     }
   }
   Draw();
@@ -579,7 +555,6 @@ void Matrizes_Input(int a[50][50], int linhas, int colunas) {
 int Matriz_Soma(int a[50][50], int b[50][50], int linhas, int colunas) {
  int c, i, j;
 
-  
   Draw();
   for(i = 0; i < linhas; i++) {
     for(j = 0; j < colunas; j++) {
@@ -595,7 +570,6 @@ int Matriz_Soma(int a[50][50], int b[50][50], int linhas, int colunas) {
 int Matriz_Sub(int a[50][50], int b[50][50], int linhas, int colunas) {
  int c, i, j;
    
-  
   Draw();
   for(i = 0; i < linhas; i++) {   
     for(j = 0; j < colunas; j++) {
@@ -612,7 +586,6 @@ int Matriz_Sub(int a[50][50], int b[50][50], int linhas, int colunas) {
 void Matriz_Mult(int a[50][50], int b[50][50], int linhas, int colunas) {
   int c = 0, i, j, s, k;
 
-  
   Draw();
   for(i = 0; i < linhas; i++) {
     for(j = 0; j < linhas; j++) {
@@ -632,7 +605,6 @@ void Fatorial() {
   float resp = 1;
   float n;
 
-  
   Draw();
   printf("%s_____________________________________________________________________________\n", AMARELO);
   printf("|                                  Fatorial                                      |\n");
@@ -664,8 +636,6 @@ void Arranjo() {
   int fatorial2 = 1;
 
   Apagar_Tela();
-
-  
   Draw();
   printf("%s__________________________________________________________________________________\n", AMARELO);
   printf("|                                                                                   |\n");
@@ -700,8 +670,6 @@ void Combinacao() {
   float arg = (n - p);
   
   Apagar_Tela();
-
-  
   Draw();
   printf("%s___________________________________________________________________________________\n", AMARELO);
   printf("|                                                                                   |\n");
@@ -727,15 +695,13 @@ int k;
   Apagar_Tela();
   Draw();
   printf("\n\n%.2f\n\n", resp);
-
   Draw();
 }
 
 void Cripto_Cesar() {
-  char mensagem[100], ch;
+  char mensagem[300], ch;
 	int i, chave;
 
-  
   Draw();
   printf("%s__________________________________________________________________________________\n", AMARELO);
   printf("|                                                                                 |\n");
@@ -749,22 +715,17 @@ void Cripto_Cesar() {
 	printf("|                                                                                 |\n");
   //usa os valores da tabela em ascii
   scanf(" %d", &chave);
-	
   for(i = 0; mensagem[i] != '\0'; ++i){
     ch = mensagem[i];
-      
     if(ch >= 'a' && ch <= 'z'){
       ch = ch + chave;
-        
         if(ch > 'z'){
         ch = ch - 'z' + 'a' - 1;
       }
-      
       mensagem[i] = ch;
     }
     else if(ch >= 'A' && ch <= 'Z'){
       ch = ch + chave;
-			
       if(ch > 'Z'){
         ch = ch - 'Z' + 'A' - 1;
       }
@@ -772,14 +733,12 @@ void Cripto_Cesar() {
     }
   }
   printf("%s_________________________________________________________________________________\n", AMARELO);
-  printf("|                                                                                 |\n");
-	printf("| Mensagem encriptada: %s                                                         |\n", mensagem); 
-  printf("|_________________________________________________________________________________|%s\n", FIM);
+	printf(" Mensagem encriptada: %s\n", mensagem);
   Draw();
 }
 
 void Decrip_Cesar() {
-  char mensagem[100], ch;
+  char mensagem[300], ch;
 	int i, chave;
 	
 	Apagar_Tela();
@@ -819,9 +778,7 @@ void Decrip_Cesar() {
       }
 	  }
   printf("%s__________________________________________________________________________________\n", AMARELO);
-  printf("|                                                                                 |\n");
-  printf("| %sMensagem descriptografada: %s                                                 %s|\n", VERDE, mensagem, AMARELO);
-  printf("|_________________________________________________________________________________|\n");
+  printf(" %sMensagem descriptografada: %s\n", VERDE, mensagem);
   Draw();
 }
 
@@ -935,7 +892,7 @@ char Enter() {
 #endif
 
 #include <stdio.h>
-#include "ansi_escapes.h"
+//#include "ansi_escapes.h"
  
 #ifdef _WIN32
  // Some old MinGW/CYGWIN distributions don't define this:
