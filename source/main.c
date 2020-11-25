@@ -10,11 +10,8 @@
    ::        :: ::::    :::::::   ::::::    ::: :::  ::   :::  :: ::::   ::: :::  
    :         : :: : :   : : :    :: : :      :: :: :  :   : :  : :: : :   :: :: :
  
-   Desenvolvedores: { Adalberto Luiz Dos Santos Junior,
-                      Gustavo Giovaneli Apparecido,
-                      Jonas Pichelli Madoenho,
-                      Nathan Dâmico Cardoso,
-                      Jennyfer Christiny Bortolini Moura }
+   Desenvolvedor: Adalberto Luiz Dos Santos Junior
+   
   data de conclusão: 08/11/2020
 */
 
@@ -34,10 +31,10 @@ void Cripto_Cesar(), Decrip_Cesar();
 void Logica_Proposicional();
 void Apagar_Tela(), Draw();
 // funções para habilitar o uso de cores ansi em octal
-//void setupConsole(void);
-//void restoreConsole(void);
-//void SetupConsole(void);
-//void RestoreConsole(void);
+void setupConsole(void);
+void restoreConsole(void);
+void SetupConsole(void);
+void RestoreConsole(void);
 // formatação de cores para uso no GNU/Linux(opções comentadas) e para windows
 // \x1b e \033 são representações em hexadecimal e octadecimal do escape ESC[
 //#define AMARELO "\033[0;33;1m"              
@@ -1032,45 +1029,45 @@ char Enter() {
 #define ENABLE_VIRTUAL_TERMINAL_PROCESSING  0x0004
 #endif
  
-//static HANDLE stdoutHandle;
-//static DWORD outModeInit;
+static HANDLE stdoutHandle;
+static DWORD outModeInit;
  
-//void setupConsole(void) {
- //	DWORD outMode = 0;
- //	stdoutHandle = GetStdHandle(STD_OUTPUT_HANDLE);
+void setupConsole(void) {
+ 	DWORD outMode = 0;
+ 	stdoutHandle = GetStdHandle(STD_OUTPUT_HANDLE);
  
-// 	if(stdoutHandle == INVALID_HANDLE_VALUE) {
- //		exit(GetLastError());
- //	}
+ 	if(stdoutHandle == INVALID_HANDLE_VALUE) {
+ 		exit(GetLastError());
+ 	}
  	
-// 	if(!GetConsoleMode(stdoutHandle, &outMode)) {
-// 		exit(GetLastError());
- //	}
+ 	if(!GetConsoleMode(stdoutHandle, &outMode)) {
+ 		exit(GetLastError());
+ 	}
  
-// 	outModeInit = outMode;
+ 	outModeInit = outMode;
  	
      // habilita codigos ANSI
- //	outMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+ 	outMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
  
- 	//if(!SetConsoleMode(stdoutHandle, outMode)) {
-// 		exit(GetLastError());
-// 	}	
-// }
+ 	if(!SetConsoleMode(stdoutHandle, outMode)) {
+ 		exit(GetLastError());
+ 	}	
+ }
  
-//void restoreConsole(void) {
+void restoreConsole(void) {
      // Reseta as cores
-  //   printf("\x1b[0m");	
+     printf("\x1b[0m");	
  	
      // Reseta modo do console
-// 	if(!SetConsoleMode(stdoutHandle, outModeInit)) {
- 	//	exit(GetLastError());
- //	}
-// }
-//#else
-//void setupConsole(void) {}
+ 	if(!SetConsoleMode(stdoutHandle, outModeInit)) {
+ 		exit(GetLastError());
+ 	}
+ }
+#else
+void setupConsole(void) {}
  
-//void restoreConsole(void) {
+void restoreConsole(void) {
      // Reseta as cores
-  //   printf("\x1b[0m");
-// }
+     printf("\x1b[0m");
+ }
 #endif
