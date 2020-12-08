@@ -128,7 +128,7 @@ int main() {
         switch(escolha) {
           case 1:
           {
-            int a[50][50], b[50][50], linhas, colunas, i, j;
+            int a[50][50], b[50][50], linhas, colunas;//, i, j;
 
            Draw();
            printf("%s_______________________________________________________________\n", AMARELO);
@@ -156,7 +156,7 @@ int main() {
 
           case 2:
           {
-             int a[50][50], b[50][50], linhas, colunas, i, j;
+             int a[50][50], b[50][50], linhas, colunas;//, i, j;
 
            Draw();
            printf("%s_____________________________________________________________\n", AMARELO);
@@ -181,7 +181,7 @@ int main() {
 
           case 3:
           {
-             int a[50][50], b[50][50], linhas, colunas, i, j;
+             int a[50][50], b[50][50], linhas, colunas;//, i, j;
 
            Draw();
            printf("| Considere que para o funcionamento dos calculos, as marizes  |\n| devem possuir valores maximos de 50x50                        |\n");
